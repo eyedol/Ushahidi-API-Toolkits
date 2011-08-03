@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Adds new category to an ushahidi deployment via the api
+# This requires the command line curl app installed
+#
+# Author: Henry Addo <henry@ushahidi.com>"
+
+curl -v -u 'admin:admin' -F 'task=category' \
+-F 'action=add' \
+-F 'category_title=Test+api+category+title' \
+-F 'category_description=Testing+with+the+api' \
+-F 'parent_id=0' \
+-F 'category_color=ff00ff' \
+'http://demo/ushahidi.com/api'

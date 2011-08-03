@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Fetches reports in an ushahidi deployment by approved via the api
+# This requires the command line curl app installed
+# Author: Henry Addo <henry@ushahidi.com>"
+
+curl -v -u 'admin:admin' -F 'task=reports' \
+-F 'by=approved' \
+'http://demo.ushahidi.com/api'

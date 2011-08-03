@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Fetches reports in an ushahidi deployment by unverified via the api.
+# It returns all unverified reports.
+# This requires the command line curl app installed.
+#
+# Author: Henry Addo <henry@ushahidi.com>"
+
+curl -v -u 'admin:admin' -F 'task=reports' \
+-F 'by=unverified' \
+'http://localhost/ush/api'

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Deletes an existing category in an ushahidi deployment via the api
+# This requires the command line curl app installed
+#
+# Author: Henry Addo <henry@ushahidi.com>"
+
+curl -v -u 'admin:admin' -F 'task=category' \
+-F 'action=delete' \
+-F 'category_id=9' \
+'http://demo.ushahidi.com/api'

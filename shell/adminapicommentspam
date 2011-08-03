@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Marks and Unmarks spam comments in an ushahidi deployment via the api
+# This requires the command line curl app installed
+# Author: Henry Addo <henry@ushahidi.com>"
+
+curl -v -u 'admin:admin' -F 'task=comments' \
+-F 'action=spam' \
+-F 'comment_id=1' \
+'http://demo.ushahidi.com/api'

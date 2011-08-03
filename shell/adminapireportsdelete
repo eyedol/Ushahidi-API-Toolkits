@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Deletes report in an Ushahidi deployment by the report id.
+#
+# This requires the command line curl app installed.
+#
+# Author: Henry Addo <henry@ushahidi.com>"
+
+curl -v -u 'admin:admin' -F 'task=reports' \
+-F 'action=delete' \
+-F 'incident_id=5' \
+'http://demo.ushahidi.com/api'
