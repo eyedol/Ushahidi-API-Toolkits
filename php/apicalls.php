@@ -24,30 +24,7 @@ class ApiCalls extends HttpClient{
     {
         parent::__construct($url,$debug,$timeout);
 
-	}
-
-	/**
-	 * Runs the API service
-	 */
-	public function run_api_call()
-	{
-		// Check the request is allowed
-		if ($this->_is_api_request_allowed())
-		{
-			// Route the API task
-			$this->_route_api_task();
-		}
-		else
-		{
-			// Set the response to "ACCESS DENIED"
-			$this->set_response($this->get_error_msg(006));
-
-			// Terminate execution
-            return;     
-
-		}
-	}
-	
+	}	
 	    
 	/**
 	 * Sets the response data
