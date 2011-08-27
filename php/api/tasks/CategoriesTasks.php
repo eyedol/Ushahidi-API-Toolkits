@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * This class Implements all front end API methods for Categories. 
+ * See { @link http://wiki.ushahidi.com/doku.php?id=ushahidi_api#get_methods Incidents methods }
+ *
+ * @author Henry Addo <henry@addhen.org>
+ * @version 1.0
+ * @package php
+ */
 require_once('apicalls.php');
 require_once('api/categories.php');
 class CategoriesTasks extends ApiCalls {
@@ -8,7 +16,9 @@ class CategoriesTasks extends ApiCalls {
     /**
      * The default constructor
      *
-     * @param url - The ushahidi url
+     * @param string @url the ushahidi URL
+     * @param bool $debug turn debug on or off
+     * @param int timeout the time in miliseconds to timeout a connection
      */
     public function __construct($url,$debug,$timeout)
     {
@@ -18,7 +28,7 @@ class CategoriesTasks extends ApiCalls {
     /**
      * Gets all categories in the Ushahidi deployment
      *
-     * @return object
+     * @return object the details of all the categories retrieved.
      */
     public function get_all_categories()
     {
@@ -27,11 +37,11 @@ class CategoriesTasks extends ApiCalls {
     }
 
     /**
-     * Gets categories by category id
+     * Gets categories by category id.
      *
-     * @param int - The category id
+     * @param int $id the category id.
      *
-     * @return object
+     * @return object the details of the category fetched by id.
      */
     public function get_categories_by_id($id)
     {
@@ -44,11 +54,10 @@ class CategoriesTasks extends ApiCalls {
     }
 
     /**
-     * Gets the categories in
-     * the Ushahidi deployment
+     * Gets the categories in the Ushahidi deployment
+     * @param array the different parameters to use to fetch category
      *
-     * @param array other variables
-     * @param int id - the category ID
+     * @return 
      */ 
     private function _get_categories($variables = array())
     {
@@ -69,7 +78,7 @@ class CategoriesTasks extends ApiCalls {
     }
 
     /**
-     * Parse JSON data received from the server
+     * Parse JSON data received from the server.
      *
      * @access private
      * 
@@ -88,8 +97,7 @@ class CategoriesTasks extends ApiCalls {
             $categories->set_code($json_data->error->code);
             $categories->set_message($json_data->error->message);
             $categories->set_items($json_data->payload->categories);
-        }
-        
+
         return $categories;
     }
 }

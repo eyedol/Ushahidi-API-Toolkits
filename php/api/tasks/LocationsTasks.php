@@ -1,4 +1,12 @@
 <?php
+/**
+ * This class Implements all front end API methods for Locations. 
+ * See { @link http://wiki.ushahidi.com/doku.php?id=ushahidi_api#get_methods Incidents methods }
+ *
+ * @author Henry Addo <henry@addhen.org>
+ * @version 1.0
+ * @package php
+ */
 
 require_once('apicalls.php');
 require_once('api/locations.php');
@@ -9,7 +17,9 @@ class LocationsTasks extends ApiCalls {
     /**
      * The default constructor
      *
-     * @param url - The ushahidi url
+     * @param string $url the ushahidi url
+     * @param bool $debug turn debug on or off
+     * @param int $timeout the time in miliseconds to timeout a connection
      */
     public function __construct($url,$debug,$timeout)
     {
@@ -30,34 +40,34 @@ class LocationsTasks extends ApiCalls {
     /**
      * Gets locations by country id
      *
-     * @param int - The country id
+     * @param int $country_id the country id
      *
      * @return object
      */
-    public function get_locations_by_country_id($id)
+    public function get_locations_by_country_id($country_id)
     {
-        $variables = array(
+        $params = array(
             'by' => 'country',
-            'id' => $id
+            'id' => $country_id
         );
-        return $this->_get_locations($variables);
+        return $this->_get_locations($params);
 
     }
 
     /**
-     * Gets locations by country id
+     * Gets locations by location id
      *
-     * @param int - The country id
+     * @param int $loc_id the location id
      *
      * @return object
      */
-    public function get_locations_by_id($id)
+    public function get_locations_by_id($loc_id)
     {
-        $variables = array(
+        $params = array(
             'by' => 'locid',
-            'id' => $id
+            'id' => $loc_id
         );
-        return $this->_get_locations($variables);
+        return $this->_get_locations($params);
 
     }
 
@@ -66,6 +76,7 @@ class LocationsTasks extends ApiCalls {
      * Gets the locations in
      * the Ushahidi deployment
      *
+     * @access private
      * @param array other variables
      * @param int id - the category ID
      */ 

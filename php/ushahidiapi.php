@@ -99,6 +99,10 @@ class UshahidiApi {
         return new LocationsTasks($this->url,$this->debug,$this->timeout);
     }
 
+    public function incidents_tasks()
+    {
+        return new IncidentsTask($this->url,$this->debug,$this->timeout);
+    }
 
 }
 
