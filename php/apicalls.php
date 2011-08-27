@@ -1,29 +1,26 @@
 <?php
+/**
+ * This handles the response retrieved from the server and passes it on to the 
+ * calling classes 
+ *
+ * @author Henry Addo <henry@addhen.org>
+ * @version 1.0
+ * @package php.api
+ * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License (LGPL)
+ */
+
 require_once('http_client.php');
 class ApiCalls extends HttpClient{
     
     /**
-	 * Response to be returned to the calling controller
-	 * @var string
+	 * Response to be returned to the calling class
+	 * @var $response
 	 */
 	private $response;
 	
-	/**
-	 * API library object to handle the requested task
-	 * @var Api_Object
-	 */
-	private $api;
-			
-	/**
-	 * API request parameters
-	 * @var array
-	 */
-	private $api_parameters;
-    
     public function __construct($url,$debug,$timeout)
     {
         parent::__construct($url,$debug,$timeout);
-
 	}	
 	    
 	/**

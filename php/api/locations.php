@@ -1,6 +1,11 @@
 <?php
 /**
- * Locations api call
+ * This class encapsulates the locations API methods. 
+ *
+ * @author Henry Addo <henry@addhen.org>
+ * @version 1.0
+ * @package php.api
+ * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License (LGPL)
  */
 require_once('payload.php');
 

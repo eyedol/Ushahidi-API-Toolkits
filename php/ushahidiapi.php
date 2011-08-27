@@ -1,28 +1,21 @@
 <?php
 /**
- * Api
+ * This class Encapsulates the various tasks as implemented by the Ushahidi deployment.
  *
- * Base class for all API library implementations.
- * 
- * PHP version 5
- * LICENSE: This source file is subject to LGPL license
- * that is available through the world-wide-web at the following URI:
- * http://www.gnu.org/copyleft/lesser.html
- * @author     Henry Addo <henry@addhen.org>
- * @license    http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License (LGPL)
+ * @author Henry Addo <henry@addhen.org>
+ * @version 1.0
+ * @package php
+ * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License (LGPL)
  */
 
 function __autoload($class_name) {
     include 'api/tasks/'.$class_name . '.php';
 }
 
-/**
- * Encapsulates the various tasks
- */
 class UshahidiApi {
 
     /**
-     * The Ushahidi url 
+     * The Ushahidi URL 
      *
      *@access private
      *@var string
@@ -33,7 +26,7 @@ class UshahidiApi {
      * Turn debugging on
      *
      * @access private
-     * @var boolean
+     * @var bool
      */
     private $debug;
 
@@ -48,9 +41,9 @@ class UshahidiApi {
     /**
      * Default constructor
      *
-     * @param string url
-     * @param boolean debug
-     * @param int timeout
+     * @param string $url the ushahidi deployment URL
+     * @param bool $debug to turn on debugging on or off
+     * @param int $timeout in miliseconds to timeout a connection
      */
     public function __construct($url,$debug=false,$timeout=10)
     {
@@ -62,7 +55,7 @@ class UshahidiApi {
     /**
      * Make MapApiKeysTasks object available
      *
-     * @return object - The map api keys api object
+     * @return object the map api keys api object
      */
     public function map_api_keys_tasks() 
     {
@@ -72,7 +65,7 @@ class UshahidiApi {
     /**
      * Make Categories Tasks object available
      *
-     * @return object - The categories tasks object
+     * @return object the categories tasks object
      */
     public function categories_tasks() 
     {
@@ -82,7 +75,7 @@ class UshahidiApi {
     /**
      * Make Countries Tasks object available
      *
-     * @return object - The countries tasks object
+     * @return object the countries tasks object
      */
     public function countries_tasks() 
     {
@@ -98,7 +91,12 @@ class UshahidiApi {
     {
         return new LocationsTasks($this->url,$this->debug,$this->timeout);
     }
-
+    
+    /**
+     * Make Incident Tasks object available
+     * 
+     * @return object the incident tasks object.
+     */
     public function incidents_tasks()
     {
         return new IncidentsTask($this->url,$this->debug,$this->timeout);

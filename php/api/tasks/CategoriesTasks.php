@@ -7,6 +7,7 @@
  * @author Henry Addo <henry@addhen.org>
  * @version 1.0
  * @package php.api.tasks
+ * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License (LGPL)
  */
 require_once('apicalls.php');
 require_once('api/categories.php');

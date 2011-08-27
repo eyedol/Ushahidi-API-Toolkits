@@ -1,8 +1,13 @@
 <?php
 /**
- * HttpClient
- * HTTP Client Implementation based on php-curl
+ * HTTP client Implementation based on php-curl
+ *
+ * @author Henry Addo <henry@addhen.org>
+ * @version 1.0
+ * @package php
+ * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License (LGPL)
  */
+
 class HttpClient {
     
     /**

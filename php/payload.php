@@ -1,8 +1,14 @@
 <?php
-
 /**
- * An abstract class that is implemented by all the api call
+ * An @abstract class that is implemented by all the api call
+ *
+ *
+ * @author Henry Addo <henry@addhen.org>
+ * @version 1.0
+ * @package php
+ * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License (LGPL)
  */
+
 abstract class Payload {
 
     /**
@@ -52,8 +58,6 @@ abstract class Payload {
     /**
      * Set the domain received from the server
      * 
-     * @access public
-     *
      * @param string the domain from the server.
      */
     public function set_domain($domain)
@@ -64,8 +68,6 @@ abstract class Payload {
     /**
      * Get the domain received from the server
      *
-     * @access public
-     *
      * @return string
      */
     public function get_domain()
@@ -75,8 +77,6 @@ abstract class Payload {
     
     /**
      * Set the code received from the server
-     * 
-     * @access public
      *
      * @param int the code from the server.
      */
@@ -88,8 +88,6 @@ abstract class Payload {
     /**
      * Get the code received from the server
      *
-     * @access public
-     *
      * @return int
      */
     public function get_code()
@@ -100,8 +98,6 @@ abstract class Payload {
     /**
      * Set the message received from the server
      * 
-     * @access public
-     *
      * @param string the message from the server.
      */
     public function set_message($message)
@@ -111,8 +107,6 @@ abstract class Payload {
 
     /**
      * Get the message received from the server
-     *
-     * @access public
      *
      * @return string
      */

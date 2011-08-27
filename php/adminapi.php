@@ -1,4 +1,7 @@
 <?php
+/** 
+ * @todo work on the real implementation for the admin API
+ */
 require_once('UshahidiApi.php');
 
 abstract class UshahidiAdminApi extends UshahidiApi {
@@ -7,6 +10,9 @@ abstract class UshahidiAdminApi extends UshahidiApi {
     {
     }
 
+    /**
+     * @todo implement this method
+     */
     protected login($username,$password)
     {
     }
