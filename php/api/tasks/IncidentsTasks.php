@@ -35,8 +35,15 @@ class IncidentsTasks extends ApiCalls {
      * @param int $limit optional. The number of incidents to return.  
      * @return object
      */
-    public function get_all_incidents($orderfield,$sort,$limit)
+    public function get_all_incidents($orderfield='incidentid',$sort=0,$limit=20)
     {
+        $param = array(
+            'by' => 'all',
+            'orderfield' => $orderfield,
+            'sort' => $sort,
+            'limit' => $limit
+        );
+
         return $this->_get_incidents($param);
 
     }
@@ -51,11 +58,15 @@ class IncidentsTasks extends ApiCalls {
      *
      * @return object
      */
-    public function get_incidents_by_category_name($cat_name,$orderfield,$sort,$limit)
+    public function get_incidents_by_category_name($cat_name,$orderfield='incidentid',
+        $sort=0,$limit=20)
     {
         $param = array(
             'by' => 'catname',
-            'name' => $cat_name
+            'name' => $cat_name,
+            'orderfield' => $orderfield,
+            'sort' => $sort,
+            'limit' => $limit
         );
         return $this->_get_incidents($param);
 
@@ -71,11 +82,15 @@ class IncidentsTasks extends ApiCalls {
      * @param int $limit optional. The number of incidents to return.  
      * @return object
      */ 
-    private function _get_incidents_by_category_id($cat_id,$orderfield,$sort,$limit)
+    private function _get_incidents_by_category_id($cat_id,$orderfield='incidentid',
+        $sort=0,$limit=20)
     {
         $param = array (
             'by' => 'catid',
             'id' => $cat_id,
+            'orderfield' => $orderfield,
+            'sort' => $sort,
+            'limit' => $limit
         );
 
         return $this->_get_incidents($param);
@@ -90,11 +105,15 @@ class IncidentsTasks extends ApiCalls {
      * @param int $limit optional. The number of incidents to return.  
      * @return object
      */
-    public function _get_incidents_by_location_id($loc_id,$orderfield,$sort,$limit)
+    public function _get_incidents_by_location_id($loc_id,$orderfield='incidentid',
+        $sort=0,$limit=20)
     {
         $param = array(
             'by' => 'locid',
-            'id' => $loc_id
+            'id' => $loc_id,
+            'orderfield' => $orderfield,
+            'sort' => $sort,
+            'limit' => $limit
         );
         return $this->_get_incidents($param);
     }
@@ -112,7 +131,10 @@ class IncidentsTasks extends ApiCalls {
     {
         $param = array(
             'by' => 'locname',
-            'name' => $name
+            'name' => $name,
+            'orderfield' => $orderfield,
+            'sort' => $sort,
+            'limit' => $limit
         );
 
         return $this->_get_incidents($param);
@@ -128,11 +150,15 @@ class IncidentsTasks extends ApiCalls {
      *
      * @return object the incident retrieved by since id.
      */
-    public function _get_incidents_by_since_id($since_id,$orderfield,$sort,$limit)
+    public function _get_incidents_by_since_id($since_id,$orderfield='incidentid',
+        $sort=0,$limit=0)
     {
         $param = array(
             'by' => 'sinceid',
-            'id' => $since_id
+            'id' => $since_id,
+            'orderfield' => $orderfield,
+            'sort' => $sort,
+            'limit' => $limit
         );
 
         return $this->_get_incidents($param);
@@ -148,11 +174,14 @@ class IncidentsTasks extends ApiCalls {
      * 
      * @return object the incident retrieved by id.
      */
-    public function _get_incidents_by_id($id,$orderfield,$sort,$limit)
+    public function _get_incidents_by_id($id,$orderfield='incidentid',$sort=0,$limit=20)
     {
         $param = array(
             'by' => 'incidentid',
-            'id' => $id
+            'id' => $id,
+            'orderfield' => $orderfield,
+            'sort' => $sort,
+            'limit' => $limit
         );
 
         return $this->_get_incidents($param);
@@ -172,6 +201,12 @@ class IncidentsTasks extends ApiCalls {
     {
         $param = array(
             'by' => 'bounds',
+            'sw' => $southwest,
+            'ne' => $northwest,
+            'c' => $cat_id,
+            'orderfield' => $orderfield,
+            'sort' => $sort,
+            'limit' => $limit
         );
 
         return $this->_get_incidents($param);
@@ -226,7 +261,7 @@ class IncidentsTasks extends ApiCalls {
     }
 
     /**
-     * Get incidents in an ushahidi deployment
+     * Get incidents in an Ushahidi deployment
      *
      * @param array - The parameters to use to fetch incidents
      *
@@ -272,7 +307,7 @@ class IncidentsTasks extends ApiCalls {
                 $incidents->set_domain($json_data->payload->domain);
                 $incidents->set_code($json_data->error->code);
                 $incidents->set_message($json_data->error->message);
-                $incidents->set_items($json_data->payload->locations);
+                $incidents->set_items($json_data->payload->incidents);
             
             } else {
                 $incidents->set_code($json_data->error->code);

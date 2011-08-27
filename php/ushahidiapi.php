@@ -9,7 +9,8 @@
  */
 
 function __autoload($class_name) {
-    include 'api/tasks/'.$class_name . '.php';
+    echo $class_name;
+    require_once 'api/tasks/'.$class_name . '.php';
 }
 
 class UshahidiApi {
@@ -99,7 +100,7 @@ class UshahidiApi {
      */
     public function incidents_tasks()
     {
-        return new IncidentsTask($this->url,$this->debug,$this->timeout);
+        return new IncidentsTasks($this->url,$this->debug,$this->timeout);
     }
 
 }

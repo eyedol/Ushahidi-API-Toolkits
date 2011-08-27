@@ -2,7 +2,7 @@
 
 require_once('ushahidiapi.php');
 
-$url = "http://localhost/tunis/api";
+$url = "http://demo.ushahidi.com/api";
 $debug = true;
 $timeout = 30;
 $ushahidi_api = new UshahidiApi($url,$debug,$timeout);
@@ -100,10 +100,11 @@ else
 
 }*/
 
+/**
 print "## Get all locations ##<br />";
 $locations_obj = $ushahidi_api->locations_tasks()->get_all_locations();
 
-/** check for errors from the server **/
+/** check for errors from the server **
 if (($locations_obj->get_code() > 0))
 {
     print $locations_obj->get_code();
@@ -122,4 +123,9 @@ else
 
 }
 
+ */
+
+print "## Get all incidents ##<br />";
+$incidents_obj = $ushahidi_api->incidents_tasks()->get_all_incidents();
+print_r($incidents_obj);
 ?>
