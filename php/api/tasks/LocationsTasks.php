@@ -5,7 +5,7 @@
  *
  * @author Henry Addo <henry@addhen.org>
  * @version 1.0
- * @package php
+ * @package php.api.tasks
  */
 
 require_once('apicalls.php');
@@ -73,8 +73,7 @@ class LocationsTasks extends ApiCalls {
 
 
     /**
-     * Gets the locations in
-     * the Ushahidi deployment
+     * Gets the locations in the Ushahidi deployment
      *
      * @access private
      * @param array other variables
@@ -109,7 +108,6 @@ class LocationsTasks extends ApiCalls {
      */
     private function parse_json_data($json_data)
     {
-        
         $locations = new Locations();
         
         if( !empty($json_data) ) 

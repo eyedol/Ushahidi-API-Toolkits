@@ -1,4 +1,13 @@
 <?php
+/**
+ * This class Implements all front end API methods for Map API keys. 
+ * See { @link http://wiki.ushahidi.com/doku.php?id=ushahidi_api#get_methods Incidents methods }
+ *
+ * @author Henry Addo <henry@addhen.org>
+ * @version 1.0
+ * @package php.api.tasks
+ */
+
 require_once('apicalls.php');
 require_once('api/mapapikeys.php');
 
@@ -8,7 +17,9 @@ class MapApiKeysTasks extends ApiCalls {
     /**
      * The default constructor
      *
-     * @param url - The ushahidi url
+     * @param string $url the ushahidi url
+     * @param bool $debug turn debug on or off
+     * @param int $timeout the time in miliseconds to timeout a connection
      */
     public function __construct($url,$debug,$timeout)
     {

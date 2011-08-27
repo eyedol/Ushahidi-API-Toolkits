@@ -5,7 +5,7 @@
  *
  * @author Henry Addo <henry@addhen.org>
  * @version 1.0
- * @package php
+ * @package php.api.tasks
  */
 
 require_once('apicalls.php');
@@ -16,7 +16,10 @@ class IncidentsTasks extends ApiCalls {
     
     /**
      * The default constructor
-     * @param url - The Ushahidi URL
+     *
+     * @param string $url the ushahidi url
+     * @param bool $debug turn debug on or off
+     * @param int $timeout the time in miliseconds to timeout a connection
      */
     public function __construct($url,$debug,$timeout)
     {

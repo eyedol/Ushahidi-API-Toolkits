@@ -6,7 +6,7 @@
  *
  * @author Henry Addo <henry@addhen.org>
  * @version 1.0
- * @package php
+ * @package php.api.tasks
  */
 require_once('apicalls.php');
 require_once('api/categories.php');
